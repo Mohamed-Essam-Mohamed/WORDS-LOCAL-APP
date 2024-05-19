@@ -1,33 +1,35 @@
 import 'package:app_english/src/constant/hive_constant.dart';
 import 'package:app_english/src/controller/write_data/write_data_state.dart';
 import 'package:app_english/src/model/word_model.dart';
-import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
+import 'package:flutter/widgets.dart';
 
 class WriteDataCubit extends Cubit<WriteDataState> {
   static WriteDataCubit get(context) => BlocProvider.of(context);
   WriteDataCubit() : super(WriteDataInitial());
-  final Box _box = Hive.box(wordsBox);
+  final Box box = Hive.box(wordsBox);
   String text = '';
   bool isArabic = true;
   int colorCode = 0XFF4A47A3;
   void updateText(String text) {
     this.text = text;
+    emit(WriteDataInitial());
   }
 
   void updateIsArabic(bool isArabic) {
     this.isArabic = isArabic;
+    emit(WriteDataInitial());
   }
 
   void updateColorCode(int colorCode) {
     this.colorCode = colorCode;
+    emit(WriteDataInitial());
   }
 
   void addWord() {
     emit(WriteDataLoading());
-    _tryAngCatch(() {
+    try {
       List<WordModel> words = _getWords();
       words.add(
         WordModel(
@@ -37,8 +39,14 @@ class WriteDataCubit extends Cubit<WriteDataState> {
           colorCode: colorCode,
         ),
       );
-      _box.put(wordsList, words);
-    }, "we have problems when we add word , please try again");
+      box.put(wordsList, words);
+      emit(WriteDataSuccess());
+    } catch (e) {
+      emit(
+        WriteDataError(
+            messageError: "We Have problems when we add word,Please try again"),
+      );
+    }
   }
 
   void deleteWord(int indexAtDatabase) {
@@ -48,7 +56,7 @@ class WriteDataCubit extends Cubit<WriteDataState> {
       for (var i = indexAtDatabase; i < words.length; i++) {
         words[i] = words[i].decrementIndexAtDataBase();
       }
-      _box.put(wordsList, words);
+      box.put(wordsList, words);
     }, "we have problems when we delete word , please try again");
     emit(WriteDataLoading());
   }
@@ -59,7 +67,7 @@ class WriteDataCubit extends Cubit<WriteDataState> {
         List<WordModel> words = _getWords();
         words[indexAtDatabase] =
             words[indexAtDatabase].addSimilarWord(text, isArabic);
-        _box.put(wordsList, words);
+        box.put(wordsList, words);
       },
       "we have problems when we add similar word , please try again",
     );
@@ -71,7 +79,7 @@ class WriteDataCubit extends Cubit<WriteDataState> {
         List<WordModel> words = _getWords();
         words[indexAtDatabase] =
             words[indexAtDatabase].addExample(text, isArabic);
-        _box.put(wordsList, words);
+        box.put(wordsList, words);
       },
       "we have problems when we add example , please try again",
     );
@@ -84,7 +92,7 @@ class WriteDataCubit extends Cubit<WriteDataState> {
         List<WordModel> words = _getWords();
         words[indexAtDatabase] = words[indexAtDatabase]
             .deleteSimilarWord(indexAtSimilarWord, isArabicSimilarWord);
-        _box.put(wordsList, words);
+        box.put(wordsList, words);
       },
       "we have problems when we delete similar word , please try again",
     );
@@ -97,7 +105,7 @@ class WriteDataCubit extends Cubit<WriteDataState> {
         List<WordModel> words = _getWords();
         words[indexAtDatabase] = words[indexAtDatabase]
             .deleteExaple(indexAtExample, isArabicExample);
-        _box.put(wordsList, words);
+        box.put(wordsList, words);
       },
       "we have problems when we delete example , please try again",
     );
@@ -116,5 +124,5 @@ class WriteDataCubit extends Cubit<WriteDataState> {
   }
 
   List<WordModel> _getWords() =>
-      List.from(_box.get(wordsList, defaultValue: [])).cast<WordModel>();
+      List.from(box.get(wordsList, defaultValue: [])).cast<WordModel>();
 }

@@ -1,9 +1,8 @@
-import 'dart:math';
-
 import 'package:app_english/src/constant/hive_constant.dart';
 import 'package:app_english/src/controller/read_data/read_data_state.dart';
 import 'package:app_english/src/model/word_model.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -22,6 +21,7 @@ class ReadDataCubit extends Cubit<ReadDataState> {
           List.from(_box.get(wordsList, defaultValue: [])).cast<WordModel>();
       _removeUnwantedWords(words);
       _applySorting(words);
+
       emit(ReadDataSuccess(words: words));
     } catch (error) {
       emit(ReadDataError(
@@ -72,14 +72,17 @@ class ReadDataCubit extends Cubit<ReadDataState> {
 
   void updateLanguageFilter(LanguageFilter languageFilter) {
     this.languageFilter = languageFilter;
+    emit(ReadDataInitial());
   }
 
   void updateSortedBy(SortedBy sortedBy) {
     this.sortedBy = sortedBy;
+    emit(ReadDataInitial());
   }
 
   void updateSortingType(SortingType sortingType) {
     this.sortingType = sortingType;
+    emit(ReadDataInitial());
   }
 }
 
