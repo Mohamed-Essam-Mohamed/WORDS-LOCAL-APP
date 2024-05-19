@@ -4,25 +4,16 @@ import 'package:app_english/src/constant/hive_constant.dart';
 import 'package:app_english/src/controller/read_data/read_data_state.dart';
 import 'package:app_english/src/model/word_model.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class ReadDataCubit extends Cubit<ReadDataState> {
+  static ReadDataCubit get(context) => BlocProvider.of(context);
   ReadDataCubit() : super(ReadDataInitial());
   final Box _box = Hive.box(wordsBox);
   LanguageFilter languageFilter = LanguageFilter.allWords;
   SortedBy sortedBy = SortedBy.time;
   SortingType sortingType = SortingType.ascending;
-  void updateLanguageFilter(LanguageFilter languageFilter) {
-    this.languageFilter = languageFilter;
-  }
-
-  void updateSortedBy(SortedBy sortedBy) {
-    this.sortedBy = sortedBy;
-  }
-
-  void updateSortingType(SortingType sortingType) {
-    this.sortingType = sortingType;
-  }
 
   void getAllWords() async {
     emit(ReadDataLoading());
@@ -77,6 +68,18 @@ class ReadDataCubit extends Cubit<ReadDataState> {
         i--;
       }
     }
+  }
+
+  void updateLanguageFilter(LanguageFilter languageFilter) {
+    this.languageFilter = languageFilter;
+  }
+
+  void updateSortedBy(SortedBy sortedBy) {
+    this.sortedBy = sortedBy;
+  }
+
+  void updateSortingType(SortingType sortingType) {
+    this.sortingType = sortingType;
   }
 }
 
