@@ -2,7 +2,6 @@ import 'package:app_english/src/constant/hive_constant.dart';
 import 'package:app_english/src/controller/read_data/read_data_state.dart';
 import 'package:app_english/src/model/word_model.dart';
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -21,7 +20,6 @@ class ReadDataCubit extends Cubit<ReadDataState> {
           List.from(_box.get(wordsList, defaultValue: [])).cast<WordModel>();
       _removeUnwantedWords(words);
       _applySorting(words);
-
       emit(ReadDataSuccess(words: words));
     } catch (error) {
       emit(ReadDataError(
@@ -33,9 +31,8 @@ class ReadDataCubit extends Cubit<ReadDataState> {
     if (sortedBy == SortedBy.time) {
       if (sortingType == SortingType.ascending) {
         return;
-      } else {
-        _reverse(words);
       }
+      _reverse(words);
     } else {
       words.sort(
           (WordModel a, WordModel b) => a.text.length.compareTo(b.text.length));
@@ -58,30 +55,34 @@ class ReadDataCubit extends Cubit<ReadDataState> {
   void _removeUnwantedWords(List<WordModel> words) {
     if (languageFilter == LanguageFilter.allWords) {
       return;
-    }
-    for (var i = 0; i < words.length; i++) {
-      if ((LanguageFilter == LanguageFilter.arabic &&
-              words[i].isArabic == false) ||
-          (LanguageFilter == LanguageFilter.english &&
-              words[i].isArabic == true)) {
-        words.removeAt(i);
-        i--;
+    } else {
+      for (var i = 0; i < words.length; i++) {
+        if ((languageFilter == LanguageFilter.arabic &&
+                words[i].isArabic == false) ||
+            (languageFilter == LanguageFilter.english &&
+                words[i].isArabic == true)) {
+          words.removeAt(i);
+          i--;
+        }
       }
     }
   }
 
   void updateLanguageFilter(LanguageFilter languageFilter) {
     this.languageFilter = languageFilter;
+    getAllWords();
     emit(ReadDataInitial());
   }
 
   void updateSortedBy(SortedBy sortedBy) {
     this.sortedBy = sortedBy;
+    getAllWords();
     emit(ReadDataInitial());
   }
 
   void updateSortingType(SortingType sortingType) {
     this.sortingType = sortingType;
+    getAllWords();
     emit(ReadDataInitial());
   }
 }

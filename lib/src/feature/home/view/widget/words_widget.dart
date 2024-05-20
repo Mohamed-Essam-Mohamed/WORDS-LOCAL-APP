@@ -22,6 +22,7 @@ class WordsWidget extends StatelessWidget {
         } else if (state is ReadDataError) {
           return _getFailedWidget(state.messageError);
         } else {
+          ReadDataCubit.get(context).getAllWords();
           return _getLoadingWidget();
         }
       },

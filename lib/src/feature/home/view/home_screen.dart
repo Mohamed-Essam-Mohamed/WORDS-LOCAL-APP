@@ -26,23 +26,25 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey.withAlpha(30),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(16),
-        child: const Column(
-          children: [
-            Row(
+      body: BlocBuilder<ReadDataCubit, ReadDataState>(
+        builder: (context, state) {
+          return Container(
+            padding: const EdgeInsets.all(16),
+            child: const Column(
               children: [
-                LanguageFilterWidget(),
-                Spacer(),
-                FilterDialogButton(),
+                Row(
+                  children: [
+                    LanguageFilterWidget(),
+                    Spacer(),
+                    FilterDialogButton(),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Expanded(child: WordsWidget()),
               ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Expanded(child: WordsWidget()),
-          ],
-        ),
+          );
+        },
       ),
       floatingActionButton: _floatingActionFunction(context),
     );

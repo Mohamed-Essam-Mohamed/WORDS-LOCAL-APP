@@ -50,6 +50,8 @@ class WriteDataCubit extends Cubit<WriteDataState> {
   }
 
   void deleteWord(int indexAtDatabase) {
+    emit(WriteDataLoading());
+
     _tryAngCatch(() {
       List<WordModel> words = _getWords();
       words.removeAt(indexAtDatabase);
@@ -58,7 +60,7 @@ class WriteDataCubit extends Cubit<WriteDataState> {
       }
       box.put(wordsList, words);
     }, "we have problems when we delete word , please try again");
-    emit(WriteDataLoading());
+    emit(WriteDataInitial());
   }
 
   void addSimilarWord(int indexAtDatabase) {

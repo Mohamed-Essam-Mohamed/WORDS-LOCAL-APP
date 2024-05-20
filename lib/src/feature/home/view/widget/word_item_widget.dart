@@ -1,3 +1,6 @@
+import 'package:app_english/src/controller/read_data/read_data_cubit.dart';
+import 'package:app_english/src/controller/write_data/write_data_cubit.dart';
+import 'package:app_english/src/feature/details/view/details_screen.dart';
 import 'package:app_english/src/model/word_model.dart';
 import 'package:app_english/src/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -8,17 +11,25 @@ class WordItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onLongPress: () {
+        WriteDataCubit.get(context).deleteWord(wordModel.indexAtDatabase);
+        ReadDataCubit.get(context).getAllWords();
+      },
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: ((context) => WordDetailsScreen(wordModel: wordModel)))
-        // ).then((value) async{
-        //   Future.delayed(
-        //     const Duration(seconds: 1)
-        //   ).then((value) {
-        //     ReadDataCubit.get(context).getWords();
-        //   });
-        // });
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => DetailsScreen(wordModel: wordModel)),
+          ),
+        ).then(
+          (value) async {
+            Future.delayed(const Duration(seconds: 1)).then(
+              (value) {
+                ReadDataCubit.get(context).getAllWords();
+              },
+            );
+          },
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(8),

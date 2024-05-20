@@ -21,6 +21,7 @@ class ShowDialogWidget extends StatelessWidget {
       listener: (context, state) {
         if (state is WriteDataSuccess) {
           Navigator.pop(context);
+          ReadDataCubit.get(context).getAllWords();
           AppDialog.showSnackBar(context, "Done");
         } else if (state is WriteDataError) {
           AppDialog.showSnackBar(context, state.messageError);
