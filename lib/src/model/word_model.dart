@@ -50,7 +50,7 @@ class WordModel {
     return _getAfterCheckExample(isArabicExample, newExample);
   }
 
-  WordModel deleteExaple(int indexAtExample, bool isArabicExample) {
+  WordModel deleteExample(int indexAtExample, bool isArabicExample) {
     List<String> newExample = _initializeExample(isArabicExample);
     newExample.removeAt(indexAtExample);
     return _getAfterCheckExample(isArabicExample, newExample);

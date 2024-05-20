@@ -106,7 +106,7 @@ class WriteDataCubit extends Cubit<WriteDataState> {
       () {
         List<WordModel> words = _getWords();
         words[indexAtDatabase] = words[indexAtDatabase]
-            .deleteExaple(indexAtExample, isArabicExample);
+            .deleteExample(indexAtExample, isArabicExample);
         box.put(wordsList, words);
       },
       "we have problems when we delete example , please try again",

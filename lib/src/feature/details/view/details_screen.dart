@@ -4,10 +4,9 @@ import 'package:app_english/src/controller/read_data/read_data_state.dart';
 import 'package:app_english/src/feature/home/view/widget/exeption_widget.dart';
 import 'package:app_english/src/utils/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:app_english/src/controller/write_data/write_data_cubit.dart';
-import 'package:app_english/src/feature/details/view/widget/updaste_word_dialog.dart';
+import 'package:app_english/src/feature/details/view/widget/update_word_dialog.dart';
 import 'package:app_english/src/feature/details/view/widget/word_info_widget.dart';
 import 'package:app_english/src/model/word_model.dart';
 import 'package:app_english/src/utils/app_text_style.dart';

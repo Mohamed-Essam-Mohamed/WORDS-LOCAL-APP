@@ -2,7 +2,7 @@ import 'src/constant/hive_constant.dart';
 import 'src/controller/read_data/read_data_cubit.dart';
 import 'src/controller/write_data/write_data_cubit.dart';
 import 'src/feature/home/view/home_screen.dart';
-import 'src/model/word_typeadapter.dart';
+import 'src/model/word_type_adapter.dart';
 import 'src/utils/app_them.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.dark(),
         initialRoute: HomeScreen.routeName,
         routes: {
-          HomeScreen.routeName: (context) => HomeScreen(),
+          HomeScreen.routeName: (context) => const HomeScreen(),
         },
       ),
     );

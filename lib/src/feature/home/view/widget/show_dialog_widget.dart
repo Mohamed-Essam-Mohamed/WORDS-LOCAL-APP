@@ -8,12 +8,18 @@ import 'list_color_widget.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ShowDialogWidget extends StatelessWidget {
-  ShowDialogWidget({super.key});
+class ShowDialogWidget extends StatefulWidget {
+  const ShowDialogWidget({super.key});
+
+  @override
+  State<ShowDialogWidget> createState() => _ShowDialogWidgetState();
+}
+
+class _ShowDialogWidgetState extends State<ShowDialogWidget> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Dialog(

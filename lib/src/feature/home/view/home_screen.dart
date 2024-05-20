@@ -1,6 +1,5 @@
 import '../../../controller/read_data/read_data_cubit.dart';
 import '../../../controller/read_data/read_data_state.dart';
-import 'widget/list_color_widget.dart';
 import 'widget/show_dialog_widget.dart';
 import 'widget/words_widget.dart';
 import '../../../utils/app_colors.dart';
@@ -54,7 +53,7 @@ class HomeScreen extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () => showDialog(
         context: context,
-        builder: (context) => ShowDialogWidget(),
+        builder: (context) => const ShowDialogWidget(),
       ),
       backgroundColor: AppColors.whiteColor,
       shape: RoundedRectangleBorder(
