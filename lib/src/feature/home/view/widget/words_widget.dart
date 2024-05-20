@@ -1,9 +1,9 @@
-import 'package:app_english/src/controller/read_data/read_data_cubit.dart';
-import 'package:app_english/src/controller/read_data/read_data_state.dart';
-import 'package:app_english/src/feature/home/view/widget/exeption_widget.dart';
-import 'package:app_english/src/feature/home/view/widget/word_item_widget.dart';
-import 'package:app_english/src/model/word_model.dart';
-import 'package:app_english/src/utils/app_colors.dart';
+import '../../../../controller/read_data/read_data_cubit.dart';
+import '../../../../controller/read_data/read_data_state.dart';
+import 'exeption_widget.dart';
+import 'word_item_widget.dart';
+import '../../../../model/word_model.dart';
+import '../../../../utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

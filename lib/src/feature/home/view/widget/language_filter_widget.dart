@@ -1,6 +1,6 @@
-import 'package:app_english/src/controller/read_data/read_data_cubit.dart';
-import 'package:app_english/src/controller/read_data/read_data_state.dart';
-import 'package:app_english/src/utils/app_colors.dart';
+import '../../../../controller/read_data/read_data_cubit.dart';
+import '../../../../controller/read_data/read_data_state.dart';
+import '../../../../utils/app_colors.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

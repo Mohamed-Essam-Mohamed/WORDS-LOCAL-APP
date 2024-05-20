@@ -1,4 +1,4 @@
-import 'package:app_english/src/model/word_model.dart';
+import 'word_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class WordTypeAdapter extends TypeAdapter<WordModel> {

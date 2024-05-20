@@ -1,4 +1,4 @@
-import 'package:app_english/src/utils/app_colors.dart';
+import '../../../../utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class UpdateWordButton extends StatelessWidget {

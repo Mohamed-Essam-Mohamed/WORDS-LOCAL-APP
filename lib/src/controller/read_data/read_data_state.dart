@@ -1,4 +1,4 @@
-import 'package:app_english/src/model/word_model.dart';
+import '../../model/word_model.dart';
 
 abstract class ReadDataState {}
 

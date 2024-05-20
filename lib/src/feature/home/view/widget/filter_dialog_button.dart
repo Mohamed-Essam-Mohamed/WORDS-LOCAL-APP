@@ -1,5 +1,5 @@
-import 'package:app_english/src/feature/home/view/widget/filter_dialog.dart';
-import 'package:app_english/src/utils/app_colors.dart';
+import 'filter_dialog.dart';
+import '../../../../utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class FilterDialogButton extends StatelessWidget {

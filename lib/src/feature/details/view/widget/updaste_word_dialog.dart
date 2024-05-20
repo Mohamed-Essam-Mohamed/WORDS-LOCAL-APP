@@ -1,9 +1,9 @@
-import 'package:app_english/src/controller/read_data/read_data_cubit.dart';
-import 'package:app_english/src/controller/write_data/write_data_cubit.dart';
-import 'package:app_english/src/controller/write_data/write_data_state.dart';
-import 'package:app_english/src/feature/home/view/widget/ar_or_en_widget.dart';
-import 'package:app_english/src/feature/home/view/widget/custom_button.dart';
-import 'package:app_english/src/feature/home/view/widget/custom_form.dart';
+import '../../../../controller/read_data/read_data_cubit.dart';
+import '../../../../controller/write_data/write_data_cubit.dart';
+import '../../../../controller/write_data/write_data_state.dart';
+import '../../../home/view/widget/ar_or_en_widget.dart';
+import '../../../home/view/widget/custom_button.dart';
+import '../../../home/view/widget/custom_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

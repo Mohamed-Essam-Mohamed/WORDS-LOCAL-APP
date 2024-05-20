@@ -1,6 +1,6 @@
-import 'package:app_english/src/constant/hive_constant.dart';
-import 'package:app_english/src/controller/write_data/write_data_state.dart';
-import 'package:app_english/src/model/word_model.dart';
+import '../../constant/hive_constant.dart';
+import 'write_data_state.dart';
+import '../../model/word_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter/widgets.dart';

@@ -1,8 +1,8 @@
-import 'package:app_english/src/controller/read_data/read_data_cubit.dart';
-import 'package:app_english/src/controller/write_data/write_data_cubit.dart';
-import 'package:app_english/src/feature/details/view/details_screen.dart';
-import 'package:app_english/src/model/word_model.dart';
-import 'package:app_english/src/utils/app_colors.dart';
+import '../../../../controller/read_data/read_data_cubit.dart';
+import '../../../../controller/write_data/write_data_cubit.dart';
+import '../../../details/view/details_screen.dart';
+import '../../../../model/word_model.dart';
+import '../../../../utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class WordItemWidget extends StatelessWidget {

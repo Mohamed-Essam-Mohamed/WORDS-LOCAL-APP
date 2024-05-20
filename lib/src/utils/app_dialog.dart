@@ -1,4 +1,4 @@
-import 'package:app_english/src/utils/app_text_style.dart';
+import 'app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class AppDialog {

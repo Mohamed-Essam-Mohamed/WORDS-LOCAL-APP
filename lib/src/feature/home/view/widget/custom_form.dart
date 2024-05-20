@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:app_english/src/controller/write_data/write_data_cubit.dart';
-import 'package:app_english/src/utils/app_colors.dart';
+import '../../../../controller/write_data/write_data_cubit.dart';
+import '../../../../utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomForm extends StatefulWidget {

@@ -1,9 +1,9 @@
-import 'package:app_english/src/constant/hive_constant.dart';
-import 'package:app_english/src/controller/read_data/read_data_cubit.dart';
-import 'package:app_english/src/controller/write_data/write_data_cubit.dart';
-import 'package:app_english/src/feature/home/view/home_screen.dart';
-import 'package:app_english/src/model/word_typeadapter.dart';
-import 'package:app_english/src/utils/app_them.dart';
+import 'src/constant/hive_constant.dart';
+import 'src/controller/read_data/read_data_cubit.dart';
+import 'src/controller/write_data/write_data_cubit.dart';
+import 'src/feature/home/view/home_screen.dart';
+import 'src/model/word_typeadapter.dart';
+import 'src/utils/app_them.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';

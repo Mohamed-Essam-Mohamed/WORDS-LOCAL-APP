@@ -1,10 +1,10 @@
-import 'package:app_english/src/controller/read_data/read_data_cubit.dart';
-import 'package:app_english/src/controller/read_data/read_data_state.dart';
-import 'package:app_english/src/feature/home/view/widget/list_color_widget.dart';
-import 'package:app_english/src/feature/home/view/widget/show_dialog_widget.dart';
-import 'package:app_english/src/feature/home/view/widget/words_widget.dart';
-import 'package:app_english/src/utils/app_colors.dart';
-import 'package:app_english/src/utils/app_text_style.dart';
+import '../../../controller/read_data/read_data_cubit.dart';
+import '../../../controller/read_data/read_data_state.dart';
+import 'widget/list_color_widget.dart';
+import 'widget/show_dialog_widget.dart';
+import 'widget/words_widget.dart';
+import '../../../utils/app_colors.dart';
+import '../../../utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
