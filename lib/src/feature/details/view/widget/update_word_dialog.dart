@@ -1,3 +1,5 @@
+import 'package:app_english/src/utils/app_colors.dart';
+
 import '../../../../controller/read_data/read_data_cubit.dart';
 import '../../../../controller/write_data/write_data_cubit.dart';
 import '../../../../controller/write_data/write_data_state.dart';
@@ -81,7 +83,7 @@ class _UpdateWordDialogState extends State<UpdateWordDialog> {
   }
 
   SnackBar _getSnackBar(WriteDataError state) => SnackBar(
-      backgroundColor: Colors.red,
+      backgroundColor: AppColors.redColor,
       content: Text(
         state.messageError,
       ));

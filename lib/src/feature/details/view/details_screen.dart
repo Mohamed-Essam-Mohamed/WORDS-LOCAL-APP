@@ -65,9 +65,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       children: [
         _getLabelText("Word"),
-        const SizedBox(
-          height: 5,
-        ),
+        const SizedBox(height: 5),
         WordInfoWidget(
           color: Color(_wordModel.colorCode),
           text: _wordModel.text,
@@ -198,7 +196,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             onPressed: () => _deleteWord(context),
             icon: const Icon(
               Icons.delete,
-              color: Colors.red,
+              color: AppColors.redColor,
               size: 30,
             ),
           )
