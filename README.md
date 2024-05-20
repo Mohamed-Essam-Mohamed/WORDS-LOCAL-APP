@@ -7,7 +7,7 @@
   1- add the words: The word you see can be added and supports the addition of Arabic or English language and you can choose the preferred color.
   2- filter words: It can be filtered by language Arabic or English and also sorted by time or word length and it can also be filtered sorting type ascending or descending.
   3- show words: show all words.
-- **Details Screen:** You start with categories and then you can navigate to the news based on choosing the desired category on the same scaffold.
+- **Details Screen:** View more details about the word selected from the outside and can be deleted or added similar words and examples.
 
 
 
